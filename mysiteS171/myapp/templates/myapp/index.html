@@ -1,0 +1,19 @@
+{% extends 'myapp/base.html' %}
+
+{#{% block myhdg %}#}
+{#    <h5>Hello USERNAME</h5>#}
+{#{% endblock %}#}
+
+{% block body_block %}
+    {% if courselist %}
+        <h2>List of Courses</h2>
+        <ul>
+            {% for course in courselist %}
+                <li><a href="{% url 'myapp:detail' course.course_no %}">{{ course.title }}</a></li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <strong>There are no available courses!</strong>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{#{% block myhdg %}#}
+{#    Hello USERNAME#}
+{#{% endblock %}#}
+
+{% block body_block %}
+    {% if topiclist %}
+        <h2>List of Topics</h2>
+        <ul>
+            {% for topic in topiclist %}
+                <li><a href="{% url 'myapp:topicdetail' topic.id %}">{{ topic.subject }}</a></li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <strong>There are no available topics!</strong>
+    {% endif %}
+{#    <ul class="nav nav-pills">#}
+{#    <p>><a href="{% url 'myapp:addtopic' %}">Add a new topic</a> </p></ul>#}
+{% endblock %}

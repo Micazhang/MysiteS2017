@@ -1,0 +1,22 @@
+
+{% extends 'myapp/base.html' %}
+
+{#{% block myhdg %}#}
+{#    Hello USERNAME#}
+{#{% endblock %}#}
+
+{% block body_block %}
+    {% if course %}
+        <h2>Course Detail Information</h2>
+        <ul font="20px">
+{#            {% for c in course %}#}
+            <li>{{ "Course no: " }}{{ course.course_no }}</li>
+            <li>{{ "Title: " }}{{ course.title }}
+            <li>{{ "Textbook: " }}{{ course.textbook }}</li>
+{#            {% endfor %}#}
+        </ul>
+
+    {% else %}
+        <strong>There are no course detail information!</strong>
+    {% endif %}
+{% endblock %}

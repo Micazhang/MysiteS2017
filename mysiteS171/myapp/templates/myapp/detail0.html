@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Detail</title>
+</head>
+
+<body>
+    {% if course %}
+        <h2>Course Detail Information</h2>
+        <ul>
+            {% for c in course %}
+                <li>{{ "Course no: " }}{{ c.course_no }}{{ "; Title: " }}{{ c.title }}{{ "; Textbook: " }}{{ c.textbook }}</li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <strong>There are no course detail information!</strong>
+    {% endif %}
+</body>
+
+<p><a href="{% url 'myapp:index0' %}">Index page</a> </p>
+</html>

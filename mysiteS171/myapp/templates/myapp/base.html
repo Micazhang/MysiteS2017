@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+         <meta charset="utf-8">
+
+   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+         <title>Course Listing APP - {% block title %}Welcome！{% endblock %}</title>
+    </head>
+    <body background="http://www.1tong.com/uploads/wallpaper/art/163-1-1920x1080.jpg">
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/myapp/index0/">Course Listing APP</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+{#            <li class="active">#}
+{#                <a href="/myapp/login/">Login</a></li>#}
+            {% if request.user.is_authenticated %}
+            <li><a href="/myapp/logout/">Logout</a></li>
+            <li><a href="/myapp/mycourses/">Registered Course</a></li>
+             {% else %}
+            <li class="active">
+                <a href="/myapp/login/">Login</a></li>
+             <li><a href="/myapp/register/">Register</a></li>
+        {% endif %}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Topic
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/myapp/topics/">List of Topics</a></li>
+                    <li><a href="/myapp/addtopic/">Add a new Topic</a></li>
+{#                    <li><a href="#">Jasper Report</a></li>#}
+{#                    <li class="divider"></li>#}
+{#                    <li><a href="#">分离的链接</a></li>#}
+{#                    <li class="divider"></li>#}
+{#                    <li><a href="#">另一个分离的链接</a></li>#}
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+        <div>
+
+            {% block myhdg %}
+                {% if request.user.is_authenticated %}
+                    <h5>Hello {{ user.username }}</h5>
+                {% else %}
+                    <h5>  Hello USERNAME</h5>
+                {% endif %}
+            {% endblock %}
+
+            {% block body_block %}
+{#                <body background=""#}
+                ***
+            {% endblock %}
+
+        </div>
+        <hr />
+        <div>
+            <ul>
+{#                <li class="hbar1"><a href="/myapp/about/">Find out about this site</a></li>#}
+{#                <li class="hbar1"><a href="{% url 'myapp:index' %}">Click here to return to main page</a><br/></li>#}
+{#                <li class="hbar1"><a href="/myapp/topics/">Topic</a></li>#}
+
+{#                {% if request.user.is_authenticated %}#}
+{#                    <li class="hbar1"><a href="/myapp/logout/">Logout</a></li>#}
+{#                    <li class="hbar1"><a href="/myapp/mycourses/">Registered Courses</a></li>#}
+{#                {% else %}#}
+{#                    <li class="hbar1"><a href="/myapp/login/">Login</a></li>#}
+{#                    <li class="hbar1"><a href="/myapp/register/">Register</a></li>#}
+{#                {% endif %}#}
+
+            </ul>
+        </div>
+    </body>
+</html>
